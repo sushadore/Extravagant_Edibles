@@ -12,4 +12,5 @@ class Product < ActiveRecord::Base
     .order("reviews_count DESC")
     .limit(1)
     )}
+  scope :usa, -> { where(country_of_origin: "USA")}
 end

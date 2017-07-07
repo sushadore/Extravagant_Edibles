@@ -3,7 +3,6 @@
 <h4>We always feature our most recently added delicasies and most reviewed edible for customers ready to make a quick decision!</h4>
 
 <h3>Recently Added!</h3>
-
 <% @products.three_most_recent.each do |product| %>
   <h4><%= product.name %> </h4>
 <% end %>
@@ -11,6 +10,15 @@
 <h3>Product with Most Reviews</h3>
 <% @products.most_reviews.each do |product| %>
   <h4><%= product.name %></h4>
+<% end %>
+
+<h3>Products made in the USA</h3>
+<% if @products.usa.any? %>
+  <% @products.usa.each do |product| %>
+    <h4><%= product.name %></h4>
+  <% end %>
+<% else %>
+  <h4>There are currently no US made products</h4>
 <% end %>
 
 <h3>Product List:</h3>
